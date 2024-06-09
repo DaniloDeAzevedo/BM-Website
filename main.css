@@ -1,0 +1,841 @@
+html {
+    scroll-behavior: smooth;
+}
+
+/*The "*" selects all elements*/
+*{
+    /*Removing defualt padding and margin that browsers apply to elements for consistent spacing/layout*/
+    padding: 0;
+    margin: 0;
+
+    /*Changes box model to border box (includes padding + border in the element's total wid and h) => prevents spacing issues*/
+    box-sizing: border-box;
+
+    /*Removes default list style from ul + ol ele. Useful for customizing appearnce of lists*/
+    list-style: none;
+
+    /*Utilizng this to remove the default underline from links + hyperlinks. Allows links to be styled as needed.*/
+    text-decoration: none;
+
+    /*Allows smooth scrolling when clicking links pointing to sections within the same page*/
+    scroll-behavior: smooth;
+
+    /*Google font*/
+    font-family: "Poppins", sans-serif;
+}
+
+/*----------------------------------------------------------------------------------------*/
+
+/*Defining CSS variables within a :root selector creates global variables provding easy, across the board alteration, also lowering redundancy*/
+:root{
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --main-color: #f0f0f0;
+    --other-color: #ffc633;
+    --second-color: #000000;
+
+    /*rem (root em) is a unit of measurement relative to the font size of the root element (html in this case)*/
+    --h1-font: 5.5rem;
+    --h2-font: 3.5rem;
+    --p-font: 1rem;
+}
+
+/*----------------------------------------------------------------------------------------*/
+
+/*Targets the <body> element in HTML*/
+body{
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+/*----------------------------------------------------------------------------------------*/
+/* HEADER */
+
+/*Targets the <header> ele in HTML*/
+header{
+    /*header remains in a fixed position relative to viewport (even when scrolling)*/
+    position: fixed;
+    /*Positioning for the <header> ele, top-right corner*/
+    top: 0;
+    right: 0;
+    /*Sets the <header> width to 100% of viewport width (spanning screen)*/
+    width: 100%;
+    /*Determines the stacking order of the ele on the webpage, higher values = above lower ele*/
+    z-index: 1000;
+
+    background: #DA1A32;
+
+    /*Adds colored box shadow, first 4 values determine; hori offset, vert offset, blur radi and spread radi*/
+    box-shadow: 0 1px 6px 0 rgb(32 33 36 / 5%);
+    /*Sets header padding top and bottom (18px) and left and right(14%)*/
+    padding: 18px 14%;
+
+    /*Creates a flex container (children become flex items, which allows use of lex prop)*/
+    display: flex;
+    /*Controls how flex items are aligned*/
+    align-items: center;
+    /*Distributes flex items along main axis of the flex container(hori in this case) with space between them. Pushes items to far left + right*/
+    justify-content: space-between;
+    /*Adds a transition to CSS prop that change*/
+    transition: all .6s
+}
+
+.logo img{
+    width: 90%;
+}
+
+/*Sets display property of all ele within this class to flex containers (allows the use of flexbox prop for more control)*/
+.navMenu{
+    display: flex;
+}
+
+/*Targets links (<a> tags) that are inside another ele w/ the class .navlist*/
+/*Styles links that are part of the navigation list*/
+.navMenu a{
+    /*Allows <a> ele to be displayed as inline ele (like text)*/
+    display: inline-block;
+    /*0 top + bottom margin, 30 left + right margin*/
+    margin: 0 30px;
+
+    font-size: var(--p-font);
+    font-weight: 500;
+    color: var(--text-color);
+
+    /*Adds a transition to CSS prop that change*/
+    transition: all .6s;
+}
+
+/*navMenu (Shop, Promotions, Best Sellers, Contact Us)*/
+.navMenu a:hover{
+    /*Moves ele vertically*/
+    transform: translateY(-4px);
+    color: #ffffff;
+}
+
+/*Ele of this class are set to flex (flex containers)*/
+.navMenu-right{
+    display: flex;
+    align-items: center;
+}
+
+/*Shopping cart, User icon*/
+.navMenu-right a{
+    display: inline-block;
+    font-size: 22px;
+    color: #ffffff;
+    margin: 0 20px;
+    transition: all .6s;
+}
+
+.navMenu-right a:hover{
+    /*Moves ele vertically and increases its size by 1.1 times the og size*/
+    transform: translateY(-5px) scale(1.1);
+}
+
+/*Menu icon (Top Right)*/
+#menu-icon{
+    font-size: 35px;
+    color: #ffffff;
+    z-index: 10001;
+    margin-left: 10px;
+    /*Changes the cursor into a pointer (hand icon) upon hovering over the ele*/
+    cursor: pointer;
+
+    display: none;
+}
+
+/*----------------------------------------------------------------------------------------*/
+/* LANDING HOMPAGE */
+
+section{
+    /*Space between content of an ele + its border*/
+    /*90px = top padding*/
+    /*14% = left/right padding, percentage makes padding relative to width of containing ele*/
+    /*70px = bottom padding*/
+    padding: 90px 14% 70px;
+}
+
+/*Creating a full-screen bg image for this section of the webpage*/
+.home{
+    /*Positioning this ele relative means that child eles that are positioned absolute will be positioned relative to .home ele instead of entire page*/
+    position: relative;
+    /*Sets .home ele height to 100% viewport height*/
+    height: 100vh;
+    /*Causes ele to span entire width of its container*/
+    width: 100%;
+    /*Sets background to specified URL*/
+    background: url("Images/Build it Website Frontpage.jpg");
+    /*Covers entire background of .home ele, even if it must be stretched/cropped*/
+    background-size: cover;
+    /*Centers bg image within the .home ele*/
+    background-position: center;
+
+    /*Creates flex container*/
+    display: flex;
+    align-items: flex-end;
+    /*Aligns flex items to the start of the flex container*/
+    justify-content: flex-end;
+}
+
+/*Styles <div class="home-text">*/
+.home-text{
+    /*padding-top: 60px;
+    text-align: center;*/
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 60px;
+    text-align: center;
+    width: 100%;
+}
+
+/*Styles <h1> under <div class="home-text">*/
+.home-text h1{
+    font-size: var(--h1-font);
+    font-weight: 550;
+    line-height: 1.1;
+    color:#DA1A32;
+
+    /*Border around text*/
+    text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000,
+               1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
+}
+
+/*Stylizes <p> under <div class="home-text">*/
+.home-text p{
+    width: 100%;
+    /*Ensures the <p> ele does not exceed specified width*/
+    max-width: 560px;
+    font-size: 28px;
+    font-weight: 400;
+    color:#ffffff;
+    /*Determines the spacing between lines of text within the <p> ele*/
+    line-height: 33px;
+    margin-bottom: 20px;
+    
+    text-align: center;
+
+}
+
+/*Stylizes <a href="#" class="btn"> (button) under <div class="home-text">*/
+.btn{
+    /*Makes ele inline with surrounding text but still has padding + margins applied*/
+    display: inline-block;
+    padding: 14px 42px;
+    background: var(--text-color);
+    color: #DA1A32;
+
+    /*Stylizes text inside button*/
+    font-size: 15px;
+    font-weight: 800;
+
+    border: 2px solid transparent;
+    transition: all .6s;
+    justify-content: center;
+
+    border-radius: 10px;
+}
+
+/*Targets ele in the class when hovered over and applies styling*/
+.btn:hover{
+    transform: scale(0.9);
+    border: 2px solid var(--text-color);
+    background: #DA1A32;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+/*Stylizes <i class> within <a href="#" class="btn">, adding a left margin to the icon*/
+.btn i{
+    margin-left: 9px;
+}
+
+/*Targets <div class="homepage-divider">*/
+.homepage-divider{
+    padding: 30px 14%;
+    background: #717171;
+}
+
+/*----------------------------------------------------------------------------------------*/
+/* PROMOTIONS */
+
+/*Promotions section*/
+.promotions{
+    display: grid;
+    /*Repeat(count, track-list aka cols/rows)*/
+    /*auto-fit: auto adjusts no. of cols to fit container width*/
+    /*minmax: each col is 150px wide and expanded as needed*/
+    grid-template-columns: repeat(auto-fit, minmax(150px, auto));
+    align-items: center;
+    gap: 2.5rem;
+    margin-top: 4rem;
+}
+
+/*Each column in the grid*/
+.colPromo{
+    position: relative;
+    transition: all .6s;
+}
+
+/*Images inside the columns*/
+.colPromo-img{
+    overflow: hidden;
+}
+
+/*Alters each actual img*/
+.colPromo-img img{
+    display: block;
+    width: 100%;
+    transition: transform 0.5s;
+    cursor: pointer;
+}
+.colPromo-img:hover img{
+    transform: scale(1.05);
+}
+
+/*Stylizing the icons in the columns*/
+.colPromo-icon{
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+}
+
+/*Anchor tag for icons*/
+.colPromo-icon a{
+    display: block;
+}
+
+/*icon tag (traditionally for italic text)*/
+.colPromo-icon i{
+    margin-bottom: 20px;
+    width: 40px;
+    height: 40px;
+    background: var(--text-color);
+    color: var(--bg-color);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    opacity: 0;
+    transition: all .6s;
+}
+
+/*Selector targets <i> elements within an ele w/ the class .col-icon, ONLY when parent ele w/ class .col is hovered over*/
+.colPromo:hover .colPromo-icon i{
+    opacity: 1;
+    /*rotates the <i> ele in 3D space, (0, 0, 1) defines axis of rotation (z-axis)*/
+    transform: rotate3d(0, 0, 1, 360deg) scale(1.03);
+}
+
+
+
+/*Fullscreen image*/
+/*An overlay to display the expanded images from Promotions section*/
+#fullpage {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: contain;
+    background-repeat: no-repeat no-repeat;
+    background-position: center center;
+    background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent black background */
+    cursor: pointer; /* Change cursor to pointer on hover */
+  }
+
+
+/*----------------------------------------------------------------------------------------*/
+/* BEST SELLERS */
+
+/*Best sellers section*/
+.best-sellers{
+    display: grid;
+    /*Repeat(count, track-list aka cols/rows)*/
+    /*auto-fit: auto adjusts no. of cols to fit container width*/
+    /*minmax: each col is 150px wide and expanded as needed*/
+    grid-template-columns: repeat(auto-fit, minmax(150px, auto));
+    align-items: center;
+    gap: 2.5rem;
+    margin-top: 4rem;
+}
+
+/*Each column in the grid*/
+.col{
+    position: relative;
+    transition: all .6s;
+}
+
+/*Images inside the columns*/
+.col-img{
+    overflow: hidden;
+    border-radius: 28px;
+}
+
+/*Alters each actual img*/
+.col-img img{
+    display: block;
+    width: 100%;
+    transition: transform 0.5s;
+    cursor: pointer;
+}
+.col-img:hover img{
+    transform: scale(1.05);
+}
+
+/*Stylizing the icons in the columns*/
+.col-icon{
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+}
+
+/*Anchor tag for icons*/
+.col-icon a{
+    display: block;
+}
+
+/*icon tag (traditionally for italic text)*/
+.col-icon i{
+    margin-bottom: 20px;
+    width: 40px;
+    height: 40px;
+    background: var(--text-color);
+    color: var(--bg-color);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    opacity: 0;
+    transition: all .6s;
+}
+
+/*Selector targets <i> elements within an ele w/ the class .col-icon, ONLY when parent ele w/ class .col is hovered over*/
+.col:hover .col-icon i{
+    opacity: 1;
+    /*rotates the <i> ele in 3D space, (0, 0, 1) defines axis of rotation (z-axis)*/
+    transform: rotate3d(0, 0, 1, 360deg) scale(1.03);
+}
+
+/*----------------------------------------------------------------------------------------*/
+/* ALL PRODUCTS */
+
+/*Product page Heading*/
+.center-text{
+    text-align: center;
+}
+.center-text h2{
+    font-size: var(--h2-font);
+    font-weight: 700;
+    color: #DA1A32;
+}
+
+/*--------------------------------------------*/
+/*PRODUCT CARDS*/
+
+/* Displaying Product Cards in a grid format */
+.prodCardList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 4rem;
+}
+
+/* Container for product card */
+.prodCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+    justify-content: space-between;
+}
+
+.prodCard:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Adjusts each independent product img */
+.prodCard-img {
+    width: 100%;
+    max-width: 300px;
+    height: 200px; /* Set a fixed height for all images */
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+/* Styles the <img> element within the <prodCard-img> class */
+.prodCard-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /*Ensures the entire image fits within the container*/
+    transition: transform 0.5s;
+    cursor: pointer;
+}
+
+.prodCard-img:hover img {
+    transform: scale(1.1);
+}
+
+/* Product Name */
+.prodCard h3 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+/*Qty Selector*/
+.prodCard-quantity {
+    margin: 10px 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
+.prodCard-quantity label {
+    margin-right: 5px;
+    font-weight: 500;
+    font-size: var(--p-font);
+}
+.prodCard-quantity input {
+    width: 35px;
+    text-align: center;
+    font-size: var(--p-font);
+    border: 1px solid var(--second-color);
+}
+
+/* Add to Cart btn + Prod Price */
+.prodCard-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: auto; /* Pushes the details to the bottom of the card */
+    gap: 10px;
+}
+
+/* Add to cart btn */
+.prodCard-cart button {
+    font-size: var(--p-font);
+    font-weight: 500;
+    color: var(--second-color);
+    transition: all .6s;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--second-color);
+    white-space: nowrap; 
+}
+.prodCard-cart button:hover {
+    background-color: #DA1A32;
+    color: #ffffff;
+    
+    border: 1px solid var(--second-color);
+    transition: all .6s;
+}
+.prodCard-cart i {
+    margin-left: 0px;
+}
+
+
+/* Price */
+.prodCard-price h6 {
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--second-color);
+    white-space: nowrap;
+}
+
+
+/*--------------------------------------------*/
+
+/*View all btn*/
+.viewAll{
+    text-align: center;
+    margin-top: 4rem;
+}
+
+/*View all btn <a href="#" class="btn2">*/
+.viewAllBtn{
+    display: inline-block;
+    padding: 14px 42px;
+    background: transparent;
+    color: var(--text-color);
+    font-size: 15px;
+    font-weight: 500;
+    border: 1px solid var(--second-color);
+    /*Rounds the border edges*/
+    border-radius: 10px;
+    transition: all .6s;
+}
+.viewAllBtn:hover{
+    background: #DA1A32;
+    border: 1px solid var(--text-color);
+    color: var(--bg-color);
+    transform: scale(0.9) translateY(-6px);
+}
+
+
+/*----------------------------------------------------------------------------------------*/
+/* EMAIL NEWSLETTER */
+
+/*Content of the newsletter*/
+.newsletter-content{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 2rem;
+    background: var(--text-color);
+    padding: 20px 30px;
+    border-radius: 28px;
+}
+
+/*Newsletter header stylization*/
+.newsletter-text h2{
+    color: var(--bg-color);
+    font-size: 40px;
+    font-weight: 800;
+}
+
+/*Newsletter paragraph text stylization*/
+.newsletter-text p{
+    font-size: var(--p-font);
+    font-weight: 500;
+    color: var(--bg-color);
+}
+
+/*Newsletter Form*/
+.newsletter-content form{
+    display: grid;
+    grid-template-columns: 1fr 0.4fr;
+    gap: 1rem;
+}
+
+/*Targets the first input ele inside the form that is a direct child of the ele w/ the class "newsletter-content"*/
+/*Targets the "email" input*/
+.newsletter-content form input:first-child{
+    border: none;
+    outline: none;
+    padding: 15px;
+    background: var(--bg-color);
+    font-size: var(--p-font);
+    color: var(--text-color);
+    border-radius: 5px;
+}
+
+/*Targets the first input ele inside the form that is a direct child of the ele w/ the class "newsletter-content"*/
+/*Targets the subscribe button*/
+.newsletter-content form input:last-child{
+    border-radius: 5px;
+    font-size: var(--p-font);
+    cursor: pointer;
+}
+
+
+/*----------------------------------------------------------------------------------------*/
+/* FOOTER */
+
+.footer{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20px, auto));
+    gap: 2rem;
+    background-color: #717171;
+}
+.footer-box{
+    display: flex;
+    /*Flex items are arranged vertically in a column, one below the other*/
+    flex-direction: column;
+   
+}
+.footer-box h3{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.footer-box a{
+    color: var(--second-color);
+    margin-bottom: 0.8rem;
+    /*ease timing function*/
+    transition: all .50s ease;
+}
+.footer-box a:hover{
+    transform: translateY(-4px);
+    color: #ffffff;
+}
+
+/*Social Media Icons*/
+.social a{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    background: var(--text-color);
+    color: var(--bg-color);
+    font-size: 17px;
+    border-radius: 10px;
+    margin-right: 14px;
+    transform: transform 0.6s;
+}
+.social a:hover{
+    transform: rotate3d(0, 0, 1, 360deg) scale(1.06);
+    color: var(--bg-color);
+}
+
+.facebookText:hover{
+    transform: translateY(-5px);
+    color: #ffffff;
+    transition: all .50s ease;
+}
+
+/*----------------------------------------------------------------------------------------*/
+/*COPYRIGHT*/
+
+.copyright{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 14% 20px;
+    background-color: #717171;
+}
+
+.end-text p{
+    font-size: 12px;
+}
+
+/*----------------------------------------------------------------------------------------*/
+/* ADJUSTING CONTENT ACCORDING TO SCREEN SIZE */
+
+/*Used to apply different styles based on the characteristics of the device*/
+/*Applies the following styles only when viewport is at 1610px or less*/
+@media(max-width: 1610px){
+    /*Top + Bottom: 15px; 7% of the viewport on the left + right*/
+    header{
+        padding: 15px 7%;
+    }
+    section{
+        padding: 70px 7% 80px;
+    }
+}
+
+@media(max-width: 1500px){
+    .home{
+        height: 90vh;
+    }
+    :root{
+        --h1-font: 4.8rem;
+        --h2-font: 2.8rem;
+        --p-font: 15px;
+    }
+}
+
+@media(max-width: 1170px){
+    header{
+        padding: 10px 4%;
+    }
+    section{
+        padding: 60px 4% 70px;
+    }
+    .brands{
+        padding: 30px 4%;
+    }
+    .feature{
+        padding: 10px 4% 10px;
+    }
+    .feature-content{
+        grid-template-columns: repeat(auto-fit, minmax(300px,auto));
+    }
+    .newsletter-content{
+        grid-template-columns: repeat(auto-fit, minmax(300px,auto));
+    }
+    .selling-content{
+        grid-template-columns: repeat(auto-fit, minmax(300px,auto));
+    }
+}
+
+@media(max-width: 1050px){
+    #menu-icon{
+        display: block;
+    }
+    .navMenu{
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        padding: 40px 60px;
+        top: 0;
+        bottom: 0;
+        left: 100%; /*Initial State*/
+        right: 0;
+        display: flex;
+        flex-direction: column;
+
+        background: var(--bg-color);
+        transition: all .50s ease;
+    }
+    .navMenu a{
+        display: block;
+        color: #979797;
+        padding: 0;
+
+        margin: 0px 0px 30px 0px;
+        font-size: 2rem;
+        font-weight: 400;
+    }
+    .navMenu.open{
+        left: 0;    /*Transition State*/
+    }
+
+    :root{
+        --h1-font: 4.5rem;
+        --h2-font: 2.6rem;
+    }
+
+    .logo{
+        font-size: 25px;
+    }
+
+    .brands{
+        padding: 40px 4%;
+    }
+
+    .main-brands{
+        gap: 25px;
+    }
+
+    .brands-c img{
+        width: 100%;
+        max-width: 100px;
+        height: auto;
+    }
+
+    .newsletter-content form input:first-child{
+        padding: 8px;
+    }
+    .newsletter-content form input:last-child{
+        font-size: 12px;
+    }
+}
+
+@media(max-width: 530px){
+    :root{
+        --h1-font: 3.5rem;
+        --h2-font: 2.2rem;
+    }
+    .btn{
+        padding: 12px 20px;
+    }
+    .navMenu-right a{
+        margin-right: 7px;
+    }
+}

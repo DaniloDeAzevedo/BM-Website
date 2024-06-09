@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Linking the HTML code to the CSS file for styles-->
+    <link rel="stylesheet" type="text/css" href="product-list.css">
+
+    <!--Informs web browers how characters on the webpage should be interpreted-->
+    <meta charset="utf-8">
+
+    <!--Automatically adjusts the websites size to the device's screen size-->
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+    
+    <title> Product List - Build it Matsulu </title>
+
+    <!--Box icons link // Open source web icons website-->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+    <!--Remix icons link // Open source web icons website-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css">
+
+    <!--Google fonts link // Font family catalogue created by google, used to access the custom font in CSS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+
+    <!--Link to Animate on Scroll CSS file that provides the AOS library, enabling animations when ele are scrolled into view-->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+
+<!------------------------------------------------------------------------->
+<!-- HEADER -->
+
+    <body>
+        <!--Header-->
+        <header>
+            <!--Creates a hyperlink on the specified text that takes the user to the same page (href attribute = # (null link))-->
+            <!--Assigns class name "logo" to <a> tag. Allows for styles to be applied specifically to this ele using .logo selector in CSS-->
+            <a href="index.php" class="logo"><img src="Images\BM Logo.png"></a>
+
+            <!--Navigation menu in the form of an unordered list-->
+            <ul class="navMenu">
+                <!--Navigation links within the menu that take the user to the same page (null links)-->
+                <li><a href="product-list.html">Shop</a></li>
+                <li><a href="index.php#promotions">Promotions</a></li>
+                <li><a href="index.php#best-sellers">Best Sellers</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+
+            <!--Symbols from Remix icons website-->
+            <div class="navMenu-right">
+
+                <!--Shopping cart symbol-->
+                <a href="shopping-cart.html"><i class="ri-shopping-cart-line"></i></a>
+                <!--User symbol-->
+                <a href="#"><i class="ri-user-line"></i></a>
+                
+                <!--Three line menu symbol-->
+                <!--Assigns 2 classes to the <div> ele-->
+                <!--Assigns an ID (to uniquely identifies ele) to the <div> ele-->
+                <div class="bx bx-menu" id="menu-icon"></div>
+ 
+            </div>
+        </header>
+
+<!------------------------------------------------------------------------->
+<!-- ALL PRODUCTS -->
+
+        <!--All products (Contains entire product section)-->
+        <section id="all-products" class="allProd">
+
+            <!--Heading (centered w/ CSS)-->
+            <div class="center-text" data-aos="fade-down">
+                <h2>All Products</h2>
+            </div>
+
+            <!--PRODUCT CARDS CONTAINER-->
+            <div class="prodCardList" data-aos="zoom-in">
+
+
+                <!--Container for content in Product Card-->
+                <div class="prodCard">
+                    <!--Contains product image-->
+                    <div class="prodCard-img">
+                        <img src="Images\Build it Cutter.png">
+                    </div>
+                    <!--Product Name-->
+                    <h3>24 x 25mm Annular cutter</h3>
+                    <!--Contains "inner" content of Product Card (Add to Cart btn + Prod Price)-->
+                    <div class="prodCard-details">
+                        <!--Contains the price-->
+                        <div class="prodCard-price">
+                            <h6>R25.99</h6>
+                        </div>
+                        <!--Add to cart text + Shopping cart Icon-->
+                        <div class="prodCard-cart">
+                            <a href="#">
+                                Add to cart
+                                <i class="ri-shopping-cart-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            
+                <!--Container for content in Product Card-->
+                <div class="prodCard">
+                    <!--Contains product image-->
+                    <div class="prodCard-img">
+                        <img src="Images\Build it Hose end.png">
+                    </div>
+                    <!--Product Name-->
+                    <h3>Gardena Comfort Stop & Spray Set Carded</h3>
+                    <!--Contains "inner" content of Product Card (Add to Cart btn + Prod Price)-->
+                    <div class="prodCard-details">
+                        <!--Contains the price-->
+                        <div class="prodCard-price">
+                            <h6>R46.99</h6>
+                        </div>
+                        <!--Add to cart text + Shopping cart Icon-->
+                        <div class="prodCard-cart">
+                            <a href="#">
+                                Add to cart
+                                <i class="ri-shopping-cart-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--Container for content in Product Card-->
+                <div class="prodCard">
+                    <!--Contains product image-->
+                    <div class="prodCard-img">
+                        <img src="Images\Build it Spade.png">
+                    </div>
+                    <!--Product Name-->
+                    <h3>Terraline Comfort Spade D-Grip Handle 117cm Two Hand Grip with Soft Component Loose</h3>
+                    <!--Contains "inner" content of Product Card (Add to Cart btn + Prod Price)-->
+                    <div class="prodCard-details">
+                        <!--Contains the price-->
+                        <div class="prodCard-price">
+                            <h6>R149.99</h6>
+                        </div>
+                        <!--Add to cart text + Shopping cart Icon-->
+                        <div class="prodCard-cart">
+                            <a href="#">
+                                Add to cart
+                                <i class="ri-shopping-cart-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--Container for content in Product Card-->
+                <div class="prodCard">
+                    <!--Contains product image-->
+                    <div class="prodCard-img">
+                        <img src="Images\Build it 2 Burner Gas Stove.png">
+                    </div>
+                    <!--Product Name-->
+                    <h3>2 Burner Stainless Steel Gas Stove Silver</h3>
+                    <!--Contains "inner" content of Product Card (Add to Cart btn + Prod Price)-->
+                    <div class="prodCard-details">
+                        <!--Contains the price-->
+                        <div class="prodCard-price">
+                            <h6>R149.99</h6>
+                        </div>
+                        <!--Add to cart text + Shopping cart Icon-->
+                        <div class="prodCard-cart">
+                            <a href="#">
+                                Add to cart
+                                <i class="ri-shopping-cart-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--Container for content in Product Card-->
+                <div class="prodCard">
+                    <!--Contains product image-->
+                    <div class="prodCard-img">
+                        <img src="Images\Build it Strip light.png">
+                    </div>
+                    <!--Product Name-->
+                    <h3>LED Undercounter 345mm Light 3.6w White</h3>
+                    <!--Contains "inner" content of Product Card (Add to Cart btn + Prod Price)-->
+                    <div class="prodCard-details">
+                        <!--Contains the price-->
+                        <div class="prodCard-price">
+                            <h6>R149.99</h6>
+                        </div>
+                        <!--Add to cart text + Shopping cart Icon-->
+                        <div class="prodCard-cart">
+                            <a href="#">
+                                Add to cart
+                                <i class="ri-shopping-cart-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--Container for content in Product Card-->
+                <div class="prodCard">
+                    <!--Contains product image-->
+                    <div class="prodCard-img">
+                        <img src="Images\Build it Electrical switch.png">
+                    </div>
+                    <!--Product Name-->
+                    <h3>Electrical 3 Pole 63Amp Isolator</h3>
+                    <!--Contains "inner" content of Product Card (Add to Cart btn + Prod Price)-->
+                    <div class="prodCard-details">
+                        <!--Contains the price-->
+                        <div class="prodCard-price">
+                            <h6>R149.99</h6>
+                        </div>
+                        <!--Add to cart text + Shopping cart Icon-->
+                        <div class="prodCard-cart">
+                            <a href="#">
+                                Add to cart
+                                <i class="ri-shopping-cart-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--Container for content in Product Card-->
+                <div class="prodCard">
+                    <!--Contains product image-->
+                    <div class="prodCard-img">
+                        <img src="Images\Build it Socket pipe.png">
+                    </div>
+                    <!--Product Name-->
+                    <h3>Gully Head Grate 150x1</h3>
+                    <!--Contains "inner" content of Product Card (Add to Cart btn + Prod Price)-->
+                    <div class="prodCard-details">
+                        <!--Contains the price-->
+                        <div class="prodCard-price">
+                            <h6>R149.99</h6>
+                        </div>
+                        <!--Add to cart text + Shopping cart Icon-->
+                        <div class="prodCard-cart">
+                            <a href="#">
+                                Add to cart
+                                <i class="ri-shopping-cart-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--Container for content in Product Card-->
+                <div class="prodCard">
+                    <!--Contains product image-->
+                    <div class="prodCard-img">
+                        <img src="Images\Build it Paint tray.png">
+                    </div>
+                    <!--Product Name-->
+                    <h3>V4M Tray Set</h3>
+                    <!--Contains "inner" content of Product Card (Add to Cart btn + Prod Price)-->
+                    <div class="prodCard-details">
+                        <!--Contains the price-->
+                        <div class="prodCard-price">
+                            <h6>R149.99</h6>
+                        </div>
+                        <!--Add to cart text + Shopping cart Icon-->
+                        <div class="prodCard-cart">
+                            <a href="#">
+                                Add to cart
+                                <i class="ri-shopping-cart-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+<!------------------------------------------------------------------------->
+<!--Product Cards Part 2-->
+
+                <!--Container for content in Product Card-->
+                <div class="prodCard">
+                    <!--Contains product image-->
+                    <div class="prodCard-img">
+                        <img src="Images\Build it Putty.png">
+                    </div>
+                    <!--Product Name-->
+                    <h3>Putty Multi Purpose 2kg Teak</h3>
+                    <!--Contains "inner" content of Product Card (Add to Cart btn + Prod Price)-->
+                    <div class="prodCard-details">
+                        <!--Contains the price-->
+                        <div class="prodCard-price">
+                            <h6>R99.99</h6>
+                        </div>
+                        <!--Add to cart text + Shopping cart Icon-->
+                        <div class="prodCard-cart">
+                            <a href="#">
+                                Add to cart
+                                <i class="ri-shopping-cart-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            
+                <!--Container for content in Product Card-->
+                <div class="prodCard">
+                    <!--Contains product image-->
+                    <div class="prodCard-img">
+                        <img src="Images\Build it Mosaic.png">
+                    </div>
+                    <!--Product Name-->
+                    <h3>River Mosaic 300X300mm Plain Royal Blue</h3>
+                    <!--Contains "inner" content of Product Card (Add to Cart btn + Prod Price)-->
+                    <div class="prodCard-details">
+                        <!--Contains the price-->
+                        <div class="prodCard-price">
+                            <h6>R42.50</h6>
+                        </div>
+                        <!--Add to cart text + Shopping cart Icon-->
+                        <div class="prodCard-cart">
+                            <a href="#">
+                                Add to cart
+                                <i class="ri-shopping-cart-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--Container for content in Product Card-->
+                <div class="prodCard">
+                    <!--Contains product image-->
+                    <div class="prodCard-img">
+                        <img src="Images\Build it Pedestal light.png">
+                    </div>
+                    <!--Product Name-->
+                    <h3>Pedestal 6 Panel Black</h3>
+                    <!--Contains "inner" content of Product Card (Add to Cart btn + Prod Price)-->
+                    <div class="prodCard-details">
+                        <!--Contains the price-->
+                        <div class="prodCard-price">
+                            <h6>R249.99</h6>
+                        </div>
+                        <!--Add to cart text + Shopping cart Icon-->
+                        <div class="prodCard-cart">
+                            <a href="#">
+                                Add to cart
+                                <i class="ri-shopping-cart-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--Container for content in Product Card-->
+                <div class="prodCard">
+                    <!--Contains product image-->
+                    <div class="prodCard-img">
+                        <img src="Images\build it Floodlight.png">
+                    </div>
+                    <!--Product Name-->
+                    <h3>30wd led Floodlight Day Night</h3>
+                    <!--Contains "inner" content of Product Card (Add to Cart btn + Prod Price)-->
+                    <div class="prodCard-details">
+                        <!--Contains the price-->
+                        <div class="prodCard-price">
+                            <h6>R84.90</h6>
+                        </div>
+                        <!--Add to cart text + Shopping cart Icon-->
+                        <div class="prodCard-cart">
+                            <a href="#">
+                                Add to cart
+                                <i class="ri-shopping-cart-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--Container for content in Product Card-->
+                <div class="prodCard">
+                    <!--Contains product image-->
+                    <div class="prodCard-img">
+                        <img src="Images\Build it Scrub.png">
+                    </div>
+                    <!--Product Name-->
+                    <h3>Plastic "S" scrub</h3>
+                    <!--Contains "inner" content of Product Card (Add to Cart btn + Prod Price)-->
+                    <div class="prodCard-details">
+                        <!--Contains the price-->
+                        <div class="prodCard-price">
+                            <h6>R24.99</h6>
+                        </div>
+                        <!--Add to cart text + Shopping cart Icon-->
+                        <div class="prodCard-cart">
+                            <a href="#">
+                                Add to cart
+                                <i class="ri-shopping-cart-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--Container for content in Product Card-->
+                <div class="prodCard">
+                    <!--Contains product image-->
+                    <div class="prodCard-img">
+                        <img src="Images\Build it Welder gloves.png">
+                    </div>
+                    <!--Product Name-->
+                    <h3>Glove Matsafe Welders Red 200mm (60) L</h3>
+                    <!--Contains "inner" content of Product Card (Add to Cart btn + Prod Price)-->
+                    <div class="prodCard-details">
+                        <!--Contains the price-->
+                        <div class="prodCard-price">
+                            <h6>R54.99</h6>
+                        </div>
+                        <!--Add to cart text + Shopping cart Icon-->
+                        <div class="prodCard-cart">
+                            <a href="#">
+                                Add to cart
+                                <i class="ri-shopping-cart-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--Container for content in Product Card-->
+                <div class="prodCard">
+                    <!--Contains product image-->
+                    <div class="prodCard-img">
+                        <img src="Images\Build it Turpentine.png">
+                    </div>
+                    <!--Product Name-->
+                    <h3>Mineral Turpentine Paint Thinners 750ml</h3>
+                    <!--Contains "inner" content of Product Card (Add to Cart btn + Prod Price)-->
+                    <div class="prodCard-details">
+                        <!--Contains the price-->
+                        <div class="prodCard-price">
+                            <h6>R32.50</h6>
+                        </div>
+                        <!--Add to cart text + Shopping cart Icon-->
+                        <div class="prodCard-cart">
+                            <a href="#">
+                                Add to cart
+                                <i class="ri-shopping-cart-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--Container for content in Product Card-->
+                <div class="prodCard">
+                    <!--Contains product image-->
+                    <div class="prodCard-img">
+                        <img src="Images\Build it Silicone.png">
+                    </div>
+                    <!--Product Name-->
+                    <h3>Kaufmann Silicone 280ml clear</h3>
+                    <!--Contains "inner" content of Product Card (Add to Cart btn + Prod Price)-->
+                    <div class="prodCard-details">
+                        <!--Contains the price-->
+                        <div class="prodCard-price">
+                            <h6>R77.95</h6>
+                        </div>
+                        <!--Add to cart text + Shopping cart Icon-->
+                        <div class="prodCard-cart">
+                            <a href="#">
+                                Add to cart
+                                <i class="ri-shopping-cart-fill"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            <!--END OF PRODUCT CARDS CONTAINER-->
+            </div>
+
+        </section>
+
+<!------------------------------------------------------------------------->
+<!-- FOOTER -->
+
+        <!--footer-->
+        <section class="footer">
+
+            <div class="footer-box">
+                <h3>Contact Us</h3>
+                <a href="#">Store Manager:<br>(013) 778 9625</a>
+                <a href="#">Store Cell Number:<br>(072) 151 1392</a>
+                <a href="#">Email:<br>manager.matsulu@builditmpu.co.za</a>
+            </div>
+
+            <div class="footer-box">
+                <h3>Location</h3>
+                <a href="#">Shop 20,<br>Matsulu Shopping Centre,<br>Madiba Drive Matsulu</a>
+            </div>
+
+            <div class="footer-box">
+                <h3>Services</h3>
+                <a href="#">Deliveries</a>
+                <a href="#">Gas</a>
+                <a href="#">Credit</a>
+                <a href="#">Paint Mixing</a>
+                <a href="#">Glass Cutting</a>
+                <a href="#">Building Plan Reading</a>
+            </div>
+
+            <div class="footer-box">
+                <h3>Social</h3>
+                <div class="social">
+                    <!--Facebook icon-->
+                    <a href="#"><i class="ri-facebook-fill"></i></a>
+                    <span class="facebookText">Facebook</span>
+                </div>
+            </div>
+
+        </section>
+
+        <!--Copyright-->
+        <div class="copyright">
+            <div class="end-text">
+                <p>Copyright 2024 by Build It MPU Group. All rights reserved</p>
+            </div>
+        </div>
+
+<!------------------------------------------------------------------------->
+<!-- JAVASCRIPT SECTION -->
+
+        <!--Executes the code from the specified js file-->
+        <script src="main.js"></script>
+
+        <!--AOS-->
+        <!--Specifies where the URL where the AOS JavaScript file is hosted-->
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+            //function provided by the AOS library to initialize its functionality
+            AOS.init({
+                //Specifies the distance (px) from og trigger point to start new animation. (300px before ele in view)
+                offset: 300,
+                //specifies the duration of the animation(ms).
+                duration: 1450,
+            });
+        </script>
+
+    </body>
+
+</html>  

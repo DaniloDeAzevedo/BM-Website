@@ -1,0 +1,116 @@
+/* Basic styles for the body and html */
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    height: 100%;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    margin: 0; /* Remove default margin */
+    background-color: #f0f0f0; /* Background color of the page */
+}
+
+/* Styling the grey square */
+.outer-sqr {
+    background-color: #717171;
+    display: inline-flex; /*Wraps tightly around content*/
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+/* Styling the red square */
+.inner-sqr {
+    background-color: #DA1A32;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    width: 100%;
+}
+
+/*Logo + Sign Up*/
+.logo-sign-up{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/*Sign up heading*/
+.logo-sign-up h1{
+    color: #ffffff;
+    margin-top: 10px;
+    font-size: 25px;
+}
+
+/* Styling the form as a flex item */
+.flex-item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%; /* Ensures the form fits within the red square */
+    justify-content: center; /* Center horizontally */
+    align-items: center;    /* Center vertically */ 
+}
+
+/* Styling labels and input fields */
+label {
+    margin-bottom: 10px;
+    font-weight: bold;
+    align-self: flex-start;
+    color: #ffffff;
+}
+input {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1.5px solid #000000;
+    border-radius: 5px;
+    width: 300px; /* Adjusted for padding and border */
+}
+
+/* Styling the submit button */
+button {
+    padding: 10px;
+    background-color: #717171;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100px;
+    border: 1px solid #000000;
+    
+}
+
+button:hover {
+    background-color: #3c3c3c;
+}
+
+/* Ensuring the form elements stay within the red square */
+h1 {
+    margin: 0 0 20px;
+}
+
+/*Register account link (not registered)*/
+.flex-item #register-url{
+    margin-top: 15px;
+    color: #ffffff;
+}
+
+/*Login link (already have an account)*/
+.flex-item #login-url{
+    margin-top: 15px;
+    color: #ffffff;
+}

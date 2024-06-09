@@ -1,0 +1,443 @@
+html {
+    scroll-behavior: smooth;
+}
+
+/*The "*" selects all elements*/
+*{
+    /*Removing defualt padding and margin that browsers apply to elements for consistent spacing/layout*/
+    padding: 0;
+    margin: 0;
+
+    /*Changes box model to border box (includes padding + border in the element's total wid and h) => prevents spacing issues*/
+    box-sizing: border-box;
+
+    /*Removes default list style from ul + ol ele. Useful for customizing appearnce of lists*/
+    list-style: none;
+
+    /*Utilizng this to remove the default underline from links + hyperlinks. Allows links to be styled as needed.*/
+    text-decoration: none;
+
+    /*Allows smooth scrolling when clicking links pointing to sections within the same page*/
+    scroll-behavior: smooth;
+
+    /*Google font*/
+    font-family: "Poppins", sans-serif;
+}
+
+/*----------------------------------------------------------------------------------------*/
+
+/*Defining CSS variables within a :root selector creates global variables provding easy, across the board alteration, also lowering redundancy*/
+:root{
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --main-color: #f0f0f0;
+    --other-color: #ffc633;
+    --second-color: #000000;
+
+    /*rem (root em) is a unit of measurement relative to the font size of the root element (html in this case)*/
+    --h1-font: 5.5rem;
+    --h2-font: 3.5rem;
+    --p-font: 1rem;
+
+    --header-height: 101px;
+}
+
+/*----------------------------------------------------------------------------------------*/
+
+/*Targets the <body> element in HTML*/
+body{
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+/*----------------------------------------------------------------------------------------*/
+/* HEADER */
+
+/*Targets the <header> ele in HTML*/
+header{
+    /*header remains in a fixed position relative to viewport (even when scrolling)*/
+    position: fixed;
+    /*Positioning for the <header> ele, top-right corner*/
+    top: 0;
+    right: 0;
+    /*Sets the <header> width to 100% of viewport width (spanning screen)*/
+    width: 100%;
+    /*Determines the stacking order of the ele on the webpage, higher values = above lower ele*/
+    z-index: 1000;
+
+    background: #DA1A32;
+
+    /*Adds colored box shadow, first 4 values determine; hori offset, vert offset, blur radi and spread radi*/
+    box-shadow: 0 1px 6px 0 rgb(32 33 36 / 5%);
+    /*Sets header padding top and bottom (18px) and left and right(14%)*/
+    padding: 18px 14%;
+
+    /*Creates a flex container (children become flex items, which allows use of lex prop)*/
+    display: flex;
+    /*Controls how flex items are aligned*/
+    align-items: center;
+    /*Distributes flex items along main axis of the flex container(hori in this case) with space between them. Pushes items to far left + right*/
+    justify-content: space-between;
+    /*Adds a transition to CSS prop that change*/
+    transition: all .6s;
+    height: var(--header-height);
+}
+
+.logo img{
+    width: 90%;
+}
+
+/*Sets display property of all ele within this class to flex containers (allows the use of flexbox prop for more control)*/
+.navMenu{
+    display: flex;
+}
+
+/*Targets links (<a> tags) that are inside another ele w/ the class .navlist*/
+/*Styles links that are part of the navigation list*/
+.navMenu a{
+    /*Allows <a> ele to be displayed as inline ele (like text)*/
+    display: inline-block;
+    /*0 top + bottom margin, 30 left + right margin*/
+    margin: 0 30px;
+
+    font-size: var(--p-font);
+    font-weight: 500;
+    color: var(--text-color);
+
+    /*Adds a transition to CSS prop that change*/
+    transition: all .6s;
+}
+
+/*navMenu (Shop, Promotions, Best Sellers, Contact Us)*/
+.navMenu a:hover{
+    /*Moves ele vertically*/
+    transform: translateY(-4px);
+    color: #ffffff;
+}
+
+/*Ele of this class are set to flex (flex containers)*/
+.navMenu-right{
+    display: flex;
+    align-items: center;
+}
+
+/*Shopping cart, User icon*/
+.navMenu-right a{
+    display: inline-block;
+    font-size: 22px;
+    color: #ffffff;
+    margin: 0 20px;
+    transition: all .6s;
+}
+
+.navMenu-right a:hover{
+    /*Moves ele vertically and increases its size by 1.1 times the og size*/
+    transform: translateY(-5px) scale(1.1);
+}
+
+/*Menu icon (Top Right)*/
+#menu-icon{
+    font-size: 35px;
+    color: #ffffff;
+    z-index: 10001;
+    margin-left: 10px;
+    /*Changes the cursor into a pointer (hand icon) upon hovering over the ele*/
+    cursor: pointer;
+
+    display: none;
+}
+
+/*----------------------------------------------------------------------------------------*/
+section{
+    padding: 90px 14% 70px;
+}
+/*----------------------------------------------------------------------------------------*/
+/* ALL PRODUCTS */
+
+/*Product page Heading*/
+.center-text{
+    text-align: center;
+}
+.center-text h2{
+    font-size: var(--h2-font);
+    font-weight: 700;
+    color: #DA1A32;
+
+    margin-top: 60px;
+}
+
+
+/*--------------------------------------------*/
+/*PRODUCT CARDS*/
+
+/* Displaying Product Cards in a grid format */
+.prodCardList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+/* Container for product card */
+.prodCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+}
+
+.prodCard:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Adjusts each independent product img */
+.prodCard-img {
+    width: 100%;
+    max-width: 300px;
+    height: 200px; /* Set a fixed height for all images */
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+/* Styles the <img> element within the <prodCard-img> class */
+.prodCard-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /*Ensures the entire image fits within the container*/
+    transition: transform 0.5s;
+    cursor: pointer;
+}
+
+.prodCard-img:hover img {
+    transform: scale(1.1);
+}
+
+/* Product Name */
+.prodCard h3 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+/* Add to Cart btn + Prod Price */
+.prodCard-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: auto; /* Pushes the details to the bottom of the card */
+}
+
+/* Add to cart text/btn */
+.prodCard-cart a {
+    font-size: var(--p-font);
+    font-weight: 500;
+    color: var(--second-color);
+    transition: all .6s;
+    display: flex;
+    align-items: center;
+}
+.prodCard-cart a:hover {
+    color: var(--text-color);
+}
+.prodCard-cart i {
+    margin-left: 6px;
+}
+
+/* Price */
+.prodCard-price h6 {
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--second-color);
+}
+
+
+/*--------------------------------------------*/
+
+/*----------------------------------------------------------------------------------------*/
+/* FOOTER */
+
+.footer{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20px, auto));
+    gap: 2rem;
+    background-color: #717171;
+}
+.footer-box{
+    display: flex;
+    /*Flex items are arranged vertically in a column, one below the other*/
+    flex-direction: column;
+}
+.footer-box h3{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+.footer-box a{
+    color: var(--second-color);
+    margin-bottom: 0.8rem;
+    /*ease timing function*/
+    transition: all .50s ease;
+}
+.footer-box a:hover{
+    transform: translateY(-4px);
+    color: #ffffff;
+}
+
+/*Social Media Icons*/
+.social a{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    background: var(--text-color);
+    color: var(--bg-color);
+    font-size: 17px;
+    border-radius: 10px;
+    margin-right: 14px;
+    transform: transform 0.6s;
+}
+.social a:hover{
+    transform: rotate3d(0, 0, 1, 360deg) scale(1.06);
+    color: var(--bg-color);
+}
+
+.facebookText:hover{
+    transform: translateY(-5px);
+    color: #ffffff;
+    transition: all .50s ease;
+}
+
+/*----------------------------------------------------------------------------------------*/
+/*COPYRIGHT*/
+
+.copyright{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 14% 20px;
+    background-color: #717171;
+}
+
+.end-text p{
+    font-size: 12px;
+}
+
+/*----------------------------------------------------------------------------------------*/
+/* ADJUSTING CONTENT ACCORDING TO SCREEN SIZE */
+
+/*Used to apply different styles based on the characteristics of the device*/
+/*Applies the following styles only when viewport is at 1610px or less*/
+@media(max-width: 1610px){
+    /*Top + Bottom: 15px; 7% of the viewport on the left + right*/
+    header{
+        padding: 15px 7%;
+    }
+    section{
+        padding: 70px 7% 80px;
+    }
+    .brands{
+        padding: 20px 7%;
+    }
+    .feature{
+        padding: 10px 7% 10px;
+    }
+}
+
+@media(max-width: 1500px){
+    .home{
+        height: 90vh;
+    }
+    :root{
+        --h1-font: 4.8rem;
+        --h2-font: 2.8rem;
+        --p-font: 15px;
+    }
+}
+
+@media(max-width: 1170px){
+    header{
+        padding: 10px 4%;
+    }
+    section{
+        padding: 60px 4% 70px;
+    }
+    .newsletter-content{
+        grid-template-columns: repeat(auto-fit, minmax(300px,auto));
+    }
+    .selling-content{                                               /*What was this?*/
+        grid-template-columns: repeat(auto-fit, minmax(300px,auto));
+    }
+}
+
+@media(max-width: 1050px){
+    #menu-icon{
+        display: block;
+    }
+    .navMenu{
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        padding: 40px 60px;
+        top: 0;
+        bottom: 0;
+        left: 100%; /*Initial State*/
+        right: 0;
+        display: flex;
+        flex-direction: column;
+
+        background: var(--bg-color);
+        transition: all .50s ease;
+    }
+    .navMenu a{
+        display: block;
+        color: #979797;
+        padding: 0;
+
+        margin: 0px 0px 30px 0px;
+        font-size: 2rem;
+        font-weight: 400;
+    }
+    .navMenu.open{
+        left: 0;    /*Transition State*/
+    }
+
+    :root{
+        --h1-font: 4.5rem;
+        --h2-font: 2.6rem;
+    }
+
+    .logo{
+        font-size: 25px;
+    }
+
+    .newsletter-content form input:first-child{
+        padding: 8px;
+    }
+    .newsletter-content form input:last-child{
+        font-size: 12px;
+    }
+}
+
+@media(max-width: 530px){
+    :root{
+        --h1-font: 3.5rem;
+        --h2-font: 2.2rem;
+    }
+    .btn{
+        padding: 12px 20px;
+    }
+    .navMenu-right a{
+        margin-right: 7px;
+    }
+}
