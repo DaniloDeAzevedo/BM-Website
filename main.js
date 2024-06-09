@@ -26,7 +26,7 @@ document.querySelectorAll('.colPromo-img img').forEach(img => { //Selects all <i
   });
 
 
-////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////
 
 document.addEventListener('DOMContentLoaded', function() {
   // Check if we're on the specific page
