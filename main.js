@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                   if (fieldName == 'counter' && fieldValue != null) {
 
-                      fetch('server/add_cart_items.php', {
+                      fetch('add_cart_items.php', {
                           method: 'POST',
                           body: formData
                       })
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   const fieldValue = entry[1]; // Get the value of the form field
                   
                   if (fieldName == 'counter' && fieldValue != null) {
-                      fetch('server/update_cart_items_qty.php', {
+                      fetch('update_cart_items_qty.php', {
                           method: 'POST',
                           body: formData
                       })
@@ -102,4 +102,46 @@ document.addEventListener('DOMContentLoaded', function() {
       });
   }
 });
+
+////////////////////////////////////////////////////////////////
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if we're on the specific page
+    if (window.location.pathname === '/shopping-cart.php') {
+        // Handle remove item forms
+        const removeForms = document.querySelectorAll('form[action="remove_cart_items.php"]');
+        removeForms.forEach(function(form) {
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent the default form submission
+
+                // Capture form data
+                const formData = new FormData(form);
+
+                // Send AJAX request to remove item
+                fetch('remove_cart_items.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.text())
+                .then(data => {
+                    console.log(data); // Log the response
+
+                    // // Show a success message
+                    // alert('Item removed successfully');
+
+                    // // Optionally update the UI to reflect the change
+                    // const cartItem = form.closest('.cart-item');
+                    // if (cartItem) {
+                    //     cartItem.remove();
+                    // }
+                    
+                    location.reload();
+
+                })
+                .catch(error => console.error('Error:', error));
+            });
+        });
+    }
+});
+
 

@@ -38,7 +38,7 @@
         <header>
             <!--Creates a hyperlink on the specified text that takes the user to the same page (href attribute = # (null link))-->
             <!--Assigns class name "logo" to <a> tag. Allows for styles to be applied specifically to this ele using .logo selector in CSS-->
-            <a href="index.php" class="logo"><img src="Images\BM Logo.png"></a>
+            <a href="index.php" class="logo"><img src="images\BM-Logo.png"></a>
             
             <!--Navigation menu in the form of an unordered list-->
             <ul class="navMenu">
@@ -102,28 +102,28 @@
         <!--Promo 1-->
         <div class="colPromo">
             <div class="colPromo-img"> <!--Promo flyer 1-->
-                <img src="Images\promo1.jpg">
+                <img src="images\promo1.jpg">
             </div>
         </div>
 
         <!--Promo 2-->
         <div class="colPromo">
             <div class="colPromo-img"> <!--Promo flyer 2-->
-                <img src="Images\promo2.jpg">
+                <img src="images\promo2.jpg">
             </div>
         </div>
 
         <!--Promo 3-->
         <div class="colPromo">
             <div class="colPromo-img"> <!--Promo flyer 3-->
-                <img src="Images\promo3.jpg">
+                <img src="images\promo3.jpg">
             </div>
         </div>
 
         <!--Promo 4-->
         <div class="colPromo">
             <div class="colPromo-img"> <!--Promo flyer 4-->
-                <img src="Images\promo4.jpg">
+                <img src="images\promo4.jpg">
             </div>     
         </div>
 
@@ -154,7 +154,7 @@
                 <!--Best Sellers card 1-->
                 <div class="col">
                     <div class="col-img"> <!--Hammer-->
-                        <img src="Images\Build it Hammer.png">
+                        <img src="images\Build-it-Hammer.png">
                     </div>
 
                     <div class="col-icon">
@@ -166,7 +166,7 @@
                 <!--Best Sellers card 2-->
                 <div class="col">
                     <div class="col-img"> <!--Compressor-->
-                        <img src="Images\Build it Compressor.png">
+                        <img src="images\Build-it-Compressor.png">
                     </div>
 
                     <div class="col-icon">
@@ -178,7 +178,7 @@
                 <!--Best Sellers card 3-->
                 <div class="col">
                     <div class="col-img"> <!--Saw-->
-                        <img src="Images\Build it Saw.png">
+                        <img src="images\Build-it-Saw.png">
                     </div>
 
                     <div class="col-icon">
@@ -190,7 +190,7 @@
                 <!--Best Sellers card 4-->
                 <div class="col">
                     <div class="col-img">
-                        <img src="Images\Build it valves.png">
+                        <img src="images\Build-it-Valves.png">
                     </div>
 
                     <div class="col-icon">
@@ -219,7 +219,7 @@
 
 
             <!--Imports specified file which has featured_products variable (array)-->
-            <?php include('server/get_featured_products.php'); ?>
+            <?php include('get_featured_products.php'); ?>
 
             <?php
                 $counter = 0;
@@ -232,7 +232,7 @@
                     <!--Contains product image-->
                     <div class="prodCard-img">  
                         <!--php code gets image from db-->
-                        <img src="Images\<?php echo $row['product_image']; ?>">
+                        <img src="images\<?php echo $row['product_image']; ?>">
                     </div>
                     <!--Product Name (php code takes name from db)-->
                     <h3><?php echo $row['product_name']; ?></h3>
@@ -252,10 +252,12 @@
                             <div class="prodCard-price">
                                 <h6>R <?php echo $row['product_price']; ?></h6>
                             </div>
+
                             <!--Add to cart text + Shopping cart Icon-->
                             <div class="prodCard-cart">
                                 <button type="submit"> Add to cart <i class="ri-shopping-cart-fill"></i> </button>
                             </div>
+                            
                         </div>
                     </form>
                     <!--HIDDEN INPUT FORM END-->

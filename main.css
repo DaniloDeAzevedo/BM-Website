@@ -164,7 +164,7 @@ section{
     /*Causes ele to span entire width of its container*/
     width: 100%;
     /*Sets background to specified URL*/
-    background: url("Images/Build it Website Frontpage.jpg");
+    background: url("images/Build-it-Website-Frontpage.jpg");
     /*Covers entire background of .home ele, even if it must be stretched/cropped*/
     background-size: cover;
     /*Centers bg image within the .home ele*/

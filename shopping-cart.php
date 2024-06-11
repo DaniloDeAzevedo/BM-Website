@@ -43,7 +43,7 @@
         <header>
             <!--Creates a hyperlink on the specified text that takes the user to the same page (href attribute = # (null link))-->
             <!--Assigns class name "logo" to <a> tag. Allows for styles to be applied specifically to this ele using .logo selector in CSS-->
-            <a href="index.php" class="logo"><img src="Images\BM Logo.png"></a>
+            <a href="index.php" class="logo"><img src="images\BM-Logo.png"></a>
 
             <!--Navigation menu in the form of an unordered list-->
             <ul class="navMenu">
@@ -58,7 +58,7 @@
             <div class="navMenu-right">
 
                 <!--Shopping cart symbol-->
-                <a href="shopping-cart.html"><i class="ri-shopping-cart-line"></i></a>
+                <a href="shopping-cart.php"><i class="ri-shopping-cart-line"></i></a>
                 <!--User symbol-->
                 <a href="#"><i class="ri-user-line"></i></a>
                 
@@ -89,7 +89,7 @@
                     <th>Subtotal</th>
                 </tr>
 
-                <?php include('server/get_cart_items.php'); ?>
+                <?php include('get_cart_items.php'); ?>
 
                 <!--Product in shoppping cart-->
 
@@ -105,7 +105,7 @@
                         <div class="product-info">
 
                             <!--Product Image-->
-                            <img src="Images/<?php echo $row['product_image']; ?>">
+                            <img src="images/<?php echo $row['product_image']; ?>">
 
                             <div>
                                 <!--Product Name-->
@@ -116,7 +116,13 @@
                                 <br>
 
                                 <!--Remove Button-->
-                                <form method="POST" action="shopping-cart.php">
+                                <!-- <form method="POST" action="shopping-cart.php">
+                                    <input type="hidden" name="product_id" value="<?php echo $row['product_id']; ?>"/>
+
+                                    <button type="submit" name="remove_product" class="remove-btn" value="remove">Remove</button>
+                                </form> -->
+
+                                <form method="POST" action="remove_cart_items.php">
                                     <input type="hidden" name="product_id" value="<?php echo $row['product_id']; ?>"/>
 
                                     <button type="submit" name="remove_product" class="remove-btn" value="remove">Remove</button>
