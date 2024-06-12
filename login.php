@@ -17,10 +17,16 @@
                     <h1>LOGIN</h1>
                 </div>
                 
-                <form class="flex-item">
+                <?php
+                if (isset($_GET['error']) && $_GET['error'] == 1) {
+                    echo '<p style="color: white;">That username or password is not registered</p>';
+                }
+                ?> 
+
+                <form id="login-form" class="flex-item" action="user_login.php" method="post">
                     
-                    <label for="email">Email:</label>
-                    <input type="email" id="login-email" name="email" placeholder="Email">
+                    <label for="username">Username:</label>
+                    <input type="text" id="login-username" name="username" placeholder="Username" required>
 
                     <label for="password">Password:</label>
                     <input type="password" id="login-password" name="password" placeholder="Password">

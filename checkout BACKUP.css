@@ -90,7 +90,6 @@ header{
 /*Sets display property of all ele within this class to flex containers (allows the use of flexbox prop for more control)*/
 .navMenu{
     display: flex;
-    background-color: #DA1A32;
 }
 
 /*Targets links (<a> tags) that are inside another ele w/ the class .navlist*/
@@ -103,7 +102,7 @@ header{
 
     font-size: var(--p-font);
     font-weight: 500;
-    color: #000000;
+    color: var(--text-color);
 
     /*Adds a transition to CSS prop that change*/
     transition: all .6s;
@@ -153,131 +152,73 @@ section{
     padding: 90px 14% 70px;
 }
 /*----------------------------------------------------------------------------------------*/
-/* ALL PRODUCTS */
 
-/*Product page Heading*/
-.center-text{
+/*Checkout*/
+
+.checkout {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.custom-div {
+    /* Equivalent to .container */
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  
     text-align: center;
-}
-.center-text h2{
-    font-size: var(--h2-font);
-    font-weight: 700;
-    color: #DA1A32;
-
-    margin-top: 60px;
+  
+    margin-top: 1rem;
+    padding-top: 3rem;
 }
 
-
-/*--------------------------------------------*/
-/*PRODUCT CARDS*/
-
-/* Displaying Product Cards in a grid format */
-.prodCardList {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
+.custom-div h2{
+    font-weight: bold;
 }
 
-/* Container for product card */
-.prodCard {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s;
-    justify-content: space-between;
+.custom-div hr{
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.prodCard:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-/* Adjusts each independent product img */
-.prodCard-img {
+.form-container{
     width: 100%;
-    max-width: 300px;
-    height: 200px; /* Set a fixed height for all images */
-    overflow: hidden;
-    border-radius: 10px;
-    margin-bottom: 15px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Styles the <img> element within the <prodCard-img> class */
-.prodCard-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /*Ensures the entire image fits within the container*/
-    transition: transform 0.5s;
-    cursor: pointer;
+/*--------------------------------*/
+/* Checkout Form*/
+
+#checkout-form .checkout-small-element{
+    display: inline-block;
+    width: 48%;
+    margin: 10px auto;  
 }
 
-.prodCard-img:hover img {
-    transform: scale(1.1);
+#checkout-form .checkout-large-element{
+    width: 95%;
 }
 
-/* Product Name */
-.prodCard h3 {
-    font-size: 17px;
-    font-weight: 700;
-    margin-bottom: 10px;
-    text-align: center;
-    width: 100%;
+#checkout-form .checkout-btn-container{
+    margin: 10px;
+    text-align: right;
+    margin-right: 40px;
 }
 
-.prodCard-quantity label {
-    margin-right: 5px;
-    font-weight: 500;
-    font-size: var(--p-font);
-}
-.prodCard-quantity input {
-    width: 35px;
-    text-align: center;
-    font-size: var(--p-font);
-    border: 1px solid var(--second-color);
-}
-
-/* Add to Cart btn + Prod Price */
-.prodCard-details {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    margin-top: auto; /* Pushes the details to the bottom of the card */
-    gap: 90px;
-}
-
-/* Add to cart btn */
-.prodCard-cart button {
-    font-size: var(--p-font);
-    font-weight: 500;
-    color: var(--second-color);
-    transition: all .6s;
-    display: flex;
-    align-items: center;
-    border: 1px solid var(--second-color);
-    white-space: nowrap; 
-}
-.prodCard-cart button:hover {
-    background-color: #DA1A32;
+#checkout-form #checkout-btn{
+    background-color: #17e800;
     color: #ffffff;
-    
-    border: 1px solid var(--second-color);
-    transition: all .6s;
-}
-.prodCard-cart i {
-    margin-left: 0px;
-}
-
-/* Price */
-.prodCard-price h6 {
-    font-size: 19px;
-    font-weight: 600;
-    color: var(--second-color);
-    white-space: nowrap;
 }
 
 
@@ -416,12 +357,12 @@ section{
         display: flex;
         flex-direction: column;
 
-        background: #DA1A32;
+        background: var(--bg-color);
         transition: all .50s ease;
     }
     .navMenu a{
         display: block;
-        color: #ffffff;
+        color: #979797;
         padding: 0;
 
         margin: 0px 0px 30px 0px;

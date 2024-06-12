@@ -33,33 +33,25 @@
 <!-- HEADER -->
     
     <body>
-
-        <!--Header-->
         <header>
-            <!--Creates a hyperlink on the specified text that takes the user to the same page (href attribute = # (null link))-->
-            <!--Assigns class name "logo" to <a> tag. Allows for styles to be applied specifically to this ele using .logo selector in CSS-->
             <a href="index.php" class="logo"><img src="images\BM-Logo.png"></a>
             
-            <!--Navigation menu in the form of an unordered list-->
+            <!--Navigation menu (unordered list)-->
             <ul class="navMenu">
-                <!--Navigation links within the menu that take the user to the same page (null links)-->
-                <li><a href="product-list.html">Shop</a></li>
+                <li><a href="product-list.php">Shop</a></li>
                 <li><a href="#promotions">Promotions</a></li>
                 <li><a href="#best-sellers">Best Sellers</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="#ContactUs">Contact Us</a></li>
             </ul>
             
-            <!--Symbols from Remix icons website-->
+            <!--Right-side elements of the navbar-->
             <div class="navMenu-right">
 
                 <!--Shopping cart symbol-->
                 <a href="shopping-cart.php"><i class="ri-shopping-cart-line"></i></a>
                 <!--User symbol-->
-                <a href="#"><i class="ri-user-line"></i></a>
-                
+                <a href="login.php"><i class="ri-user-line"></i></a>
                 <!--Three line menu symbol-->
-                <!--Assigns 2 classes to the <div> ele-->
-                <!--Assigns an ID (to uniquely identifies ele) to the <div> ele-->
                 <div class="bx bx-menu" id="menu-icon"></div>
                 
             </div>
@@ -68,17 +60,18 @@
 <!------------------------------------------------------------------------->        
 <!-- LANDING HOMPAGE -->
 
-        <!--Home-->
         <!--Section tag helps structure the content of a web page by grouping related content-->
         <section class="home">      <!--Custom data attribute for Animate on Scroll-->
             <div class="home-text" data-aos="fade-up">
-                <!-- <h6>New Arrivals</h6> DELETE-->
+                
+                <!--Slogan and button-->
                 <h1>BUILD IT BETTER</h1>
                 <p>Can we do it? <b>YES WE CAN!</b></p>
                 <a href="#all-products" class="btn">
                     Shop Now
                     <i class="ri-arrow-right-line"></i>
                 </a>
+
             </div>
         </section>
 
@@ -88,7 +81,6 @@
 <!------------------------------------------------------------------------->
 <!-- PROMOTIONS -->
 
-<!--Promotions-->
 <section id="promotions" class="promotionsCatalogue">
 
     <!--Animation for Promotions-->
@@ -96,7 +88,7 @@
         <h2>Promotions</h2>
     </div>
 
-    <!--Promotions Section-->
+    <!--Promotions container-->
     <div class="promotions" data-aos="zoom-in-up">
 
         <!--Promo 1-->
@@ -131,16 +123,12 @@
 
 </section>
 
-
-
-<!--When this "<div>" is clicked the "onclick" event handler activates. (Shown + hidden upon click)-->
+<!--Fullpage display functionality for promotional flyers-->
 <div id="fullpage" onclick="this.style.display='none';"></div>
-
 
 <!------------------------------------------------------------------------->
 <!-- BEST SELLERS -->
 
-        <!--Best Sellers-->
         <section id="best-sellers" class="selling">
 
             <!--Animation for Best Sellers-->
@@ -148,112 +136,116 @@
                 <h2>Best Sellers</h2>
             </div>
 
-            <!--Best Sellers Section-->
-            <div class="best-sellers" data-aos="zoom-in-up">
+            <!--(START) PRODUCT CARDS CONTAINER-->
+            <div class="prodCardList" data-aos="zoom-in">
 
-                <!--Best Sellers card 1-->
-                <div class="col">
-                    <div class="col-img"> <!--Hammer-->
-                        <img src="images\Build-it-Hammer.png">
+                <!--Include the PHP file that retrieves the best-selling products-->
+                <?php include('get_best_sellers.php'); ?>
+
+                <!--Initializig counter variable-->
+                <?php
+                    $counter = 0;
+                ?>
+    
+                <!--Loops through each row of products table until there are no more rows-->
+                <?php while($row= $featured_products->fetch_assoc()){ ?>
+    
+                    <div class="prodCard">
+                        
+                        <!--Container for best sellers product cards-->
+                        <div class="prodCard-img">  
+                            <!--Retrieves best seller images from best sellers table-->
+                            <img src="images\<?php echo $row['product_image']; ?>">
+                        </div>
+
+                        <!--Retrieves best seller names from best sellers table-->
+                        <h3><?php echo $row['product_name']; ?></h3>
+    
+                        <!--(START) HIDDEN INPUT FORM-->
+                        <form method="POST" id="add-form-<?php echo $counter; ?>">   
+                            <!--Hidden input fields to store product information (for cart)--> 
+                            <input type="hidden" name="product_name" value="<?php echo $row['product_name']; ?>"/>
+                            <input type="hidden" name="product_price" value="<?php echo $row['product_price']; ?>"/>
+                            <input type="hidden" name="product_image" value="<?php echo $row['product_image']; ?>"/>
+                            <!--Hidden input field storing counter value-->
+                            <input type="hidden" name="counter" value="<?php echo $counter ?>"/>
+                            
+                            <!--Contains Prod Price + Add to Cart btn-->
+                            <div class="prodCard-details">
+
+                                <!--Retrieves best seller price from best sellers table-->
+                                <div class="prodCard-price">
+                                    <h6>R <?php echo $row['product_price']; ?></h6>
+                                </div>
+                                <!--Add to Cart btn-->
+                                <div class="prodCard-cart">
+                                    <button type="submit"> Add to cart <i class="ri-shopping-cart-fill"></i> </button>
+                                </div>
+                                
+                            </div>
+                        </form>
+                        <!--(END) HIDDEN INPUT FORM-->
                     </div>
-
-                    <div class="col-icon">
-                        <!--Shopping Cart icon-->
-                        <a href="#"><i class="ri-shopping-cart-line"></i></a>
-                    </div>
-                </div>
-
-                <!--Best Sellers card 2-->
-                <div class="col">
-                    <div class="col-img"> <!--Compressor-->
-                        <img src="images\Build-it-Compressor.png">
-                    </div>
-
-                    <div class="col-icon">
-                        <!--Shopping Cart icon-->
-                        <a href="#"><i class="ri-shopping-cart-line"></i></a>
-                    </div>
-                </div>
-
-                <!--Best Sellers card 3-->
-                <div class="col">
-                    <div class="col-img"> <!--Saw-->
-                        <img src="images\Build-it-Saw.png">
-                    </div>
-
-                    <div class="col-icon">
-                        <!--Shopping Cart icon-->
-                        <a href="#"><i class="ri-shopping-cart-line"></i></a>
-                    </div>
-                </div>
-
-                <!--Best Sellers card 4-->
-                <div class="col">
-                    <div class="col-img">
-                        <img src="images\Build-it-Valves.png">
-                    </div>
-
-                    <div class="col-icon">
-                        <!--Shopping Cart icon-->
-                        <a href="#"><i class="ri-shopping-cart-line"></i></a>
-                    </div>
-                </div>
-
+                <!--Increments counter-->    
+                <?php $counter++; ?>
+                <!--Closes While loop that loops through table rows--> 
+                <?php } ?>
             </div>
-
+            <!--(END) PRODUCT CARDS CONTAINER-->
         </section>
 
 <!------------------------------------------------------------------------->
 <!-- ALL PRODUCTS -->
 
-        <!--All products (Contains entire product section)-->
         <section id="all-products" class="allProd">
-
-            <!--Heading (centered w/ CSS)-->
+            
+            <!--All Products Heading-->
             <div class="center-text" data-aos="fade-down">
                 <h2>All Products</h2>
             </div>
-
+            
             <!--PRODUCT CARDS CONTAINER-->
             <div class="prodCardList" data-aos="zoom-in">
-
-
-            <!--Imports specified file which has featured_products variable (array)-->
+            
+            <!--Includes php file that retrieves featured products info-->
             <?php include('get_featured_products.php'); ?>
 
+            <!--Initializig counter variable-->
             <?php
                 $counter = 0;
             ?>
-
+            
+            <!--Looping through products table to fetch data-->
             <?php while($row= $featured_products->fetch_assoc()){ ?>
 
-            <!--Container for content in Product Card-->
+                <!--Container for content in Product Card-->
                 <div class="prodCard">
-                    <!--Contains product image-->
+
                     <div class="prodCard-img">  
-                        <!--php code gets image from db-->
+                        <!--Retrieve product image from products table-->
                         <img src="images\<?php echo $row['product_image']; ?>">
                     </div>
-                    <!--Product Name (php code takes name from db)-->
+
+                    <!--Retrieve product name from products table-->
                     <h3><?php echo $row['product_name']; ?></h3>
 
-
                     <!--HIDDEN INPUT FORM START-->
-                    <form method="POST" id="add-form-<?php echo $counter; ?>">    
+                    <form method="POST" id="add-form-<?php echo $counter; ?>">  
+                        <!--Hidden input fields to store product information (for cart)-->  
                         <input type="hidden" name="product_name" value="<?php echo $row['product_name']; ?>"/>
                         <input type="hidden" name="product_price" value="<?php echo $row['product_price']; ?>"/>
                         <input type="hidden" name="product_image" value="<?php echo $row['product_image']; ?>"/>
-
+                        <!--Hidden input field storing counter value-->
                         <input type="hidden" name="counter" value="<?php echo $counter ?>"/>
                         
-                        <!--Contains "inner" content of Product Card (Add to Cart btn + Prod Price)-->
+                        <!--Contains Prod Price + Add to Cart btn-->
                         <div class="prodCard-details">
-                            <!--Contains the price (php code takes name from db)-->
+
+                            <!--Retrieves product price from products table-->
                             <div class="prodCard-price">
                                 <h6>R <?php echo $row['product_price']; ?></h6>
                             </div>
-
-                            <!--Add to cart text + Shopping cart Icon-->
+                            <!--Add to Cart btn-->
                             <div class="prodCard-cart">
                                 <button type="submit"> Add to cart <i class="ri-shopping-cart-fill"></i> </button>
                             </div>
@@ -266,13 +258,12 @@
 
             <?php } ?>
                 
-
-            <!--END OF PRODUCT CARDS CONTAINER-->
             </div>
+            <!--END OF PRODUCT CARDS CONTAINER-->
 
             <!--View All btn-->
             <div class="viewAll" data-aos="zoom-in">
-                <a href="product-list.html" class="viewAllBtn">View All</a>
+                <a href="product-list.php" class="viewAllBtn">View All</a>
             </div>
 
         </section>
@@ -283,13 +274,14 @@
         <!--Newsletter Section-->
         <section class="newsletter">
             <div class="newsletter-content" data-aos="zoom-in">
+
                 <div class="newsletter-text">
                     <h2>Be the First to get Promotions!</h2>
                     <p>Subscribe to our newsletter.</p>
                 </div>
 
-                <form action="">
-                    <input type="email" placeholder="Enter email" required>
+                <form action="subscribe.php" method="POST">
+                    <input type="email" name="email" placeholder="Enter email" required>
                     <input type="submit" value="Subscribe" class="btnnn">
                 </form>
 
@@ -303,7 +295,7 @@
         <section class="footer">
 
             <div class="footer-box">
-                <h3>Contact Us</h3>
+                <h3 id="ContactUs">Contact Us</h3>
                 <a href="#">Store Manager:<br>(013) 778 9625</a>
                 <a href="#">Store Cell Number:<br>(072) 151 1392</a>
                 <a href="#">Email:<br>manager.matsulu@builditmpu.co.za</a>
@@ -328,7 +320,7 @@
                 <h3>Social</h3>
                 <div class="social">
                     <!--Facebook icon-->
-                    <a href="#"><i class="ri-facebook-fill"></i></a>
+                    <a href="https://www.facebook.com/BuilditMatsulu/"><i class="ri-facebook-fill"></i></a>
                     <span class="facebookText">Facebook</span>
                 </div>
             </div>
@@ -354,13 +346,9 @@
         <script>
             //function provided by the AOS library to initialize its functionality
             AOS.init({
-                //Specifies the distance (px) from og trigger point to start new animation. (300px before ele in view)
                 offset: 300,
-                //specifies the duration of the animation(ms).
                 duration: 1450,
             });
         </script>
-
     </body>
-
 </html>  

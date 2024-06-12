@@ -155,70 +155,107 @@ section{
 
 /*Checkout*/
 
-.checkout {
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-  
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-}
-
-.custom-div {
-    /* Equivalent to .container */
+.container {
+    padding: 20px;
     width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-  
+    max-width: 600px; 
+    margin: 100px auto; 
+}
+.box {
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 40px;
+    background-color: #DA1A32;
+    border-radius: 25px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: 15px solid #717171;
+}
+.box h2 {
     text-align: center;
-  
-    margin-top: 1rem;
-    padding-top: 3rem;
+    margin-top: 30px;
+    color:#ffffff;
+    text-decoration-line: underline;
+}
+form {
+    margin-top: 20px;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #ffffff;
+    
+}
+input, select {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1.5px solid #000000;
+    border-radius: 3px;
+}
+.expiry-date {
+    display: flex;
+    justify-content: space-between;
 }
 
-.custom-div h2{
+.expiry-date input {
+    width: 48%; 
+}
+.line {
+    border-bottom: 5px solid #717171;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+.order-summary {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.total-cost {
+    text-align: right;
     font-weight: bold;
 }
-
-.custom-div hr{
-    margin-left: auto;
-    margin-right: auto;
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #717171;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1.5px solid #000000;
 }
 
-.form-container{
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-
-    margin-left: auto;
-    margin-right: auto;
+button:hover{
+    background-color: #00B955;
+    transition: 0.3s;
 }
 
-/*--------------------------------*/
-/* Checkout Form*/
-
-#checkout-form .checkout-small-element{
-    display: inline-block;
-    width: 48%;
-    margin: 10px auto;  
-}
-
-#checkout-form .checkout-large-element{
-    width: 95%;
-}
-
-#checkout-form .checkout-btn-container{
-    margin: 10px;
-    text-align: right;
-    margin-right: 40px;
-}
-
-#checkout-form #checkout-btn{
-    background-color: #17e800;
-    color: #ffffff;
+/* Media query for screens smaller than 768px (tablets and mobile phones) */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    .box {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+    .box h2 {
+        margin-top: 20px;
+    }
+    input, select {
+        padding: 3px;
+        margin-bottom: 8px;
+    }
+    .line {
+        margin: 8px 0;
+    }
+    button {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
 }
 
 
@@ -357,12 +394,12 @@ section{
         display: flex;
         flex-direction: column;
 
-        background: var(--bg-color);
+        background: #DA1A32;
         transition: all .50s ease;
     }
     .navMenu a{
         display: block;
-        color: #979797;
+        color: #ffffff;
         padding: 0;
 
         margin: 0px 0px 30px 0px;

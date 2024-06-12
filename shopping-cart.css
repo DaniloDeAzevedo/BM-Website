@@ -205,7 +205,7 @@ section{
 
 /*Contains image, name, price*/
 .cart td{
-    padding: 10px 20px;
+    padding: 10px;
 }
 
 /*Image only*/
@@ -217,14 +217,18 @@ section{
 
 /*Quantity input field*/
 .cart td input{
-    width: 30px;
+    width: 40px;
 }
 
 /*Remove item from cart button*/
 .cart .remove-btn{ 
-    background-color: none;
+    background-color: #dfdfdf;
     border: none;
     width: 100px;
+}
+
+.save-qty-form button{
+    width: 40px;
 }
 
 .cart-total{
@@ -250,11 +254,31 @@ td:last-child{
 .checkout-btn-container{
     display: flex;
     justify-content: flex-end;
+    padding-top: 30px;
+    padding-right: 15px;
+    
 }
 
 .checkout-btn{
     color: #ffffff;
-    background-color: #00c317;
+    background-color: #717171;
+
+    display: inline-block;
+    padding: 14px 42px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 500;
+    border: 1px solid var(--second-color);
+    /*Rounds the border edges*/
+    border-radius: 10px;
+    transition: all .6s;
+}
+
+.checkout-btn:hover{
+    background: #00B955;
+    border: 1px solid var(--text-color);
+    color: var(--bg-color);
+    transform: scale(0.9) translateY(-3px);
 }
 
 
@@ -394,12 +418,12 @@ td:last-child{
         display: flex;
         flex-direction: column;
 
-        background: var(--bg-color);
+        background: #DA1A32;
         transition: all .50s ease;
     }
     .navMenu a{
         display: block;
-        color: #979797;
+        color: #ffffff;
         padding: 0;
 
         margin: 0px 0px 30px 0px;

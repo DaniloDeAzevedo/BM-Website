@@ -3,7 +3,7 @@
 
 <head>
     <!--Linking the HTML code to the CSS file for styles-->
-    <link rel="stylesheet" type="text/css" href="checkout.css">
+    <link rel="stylesheet" type="text/css" href="product-list.css">
 
     <!--Informs web browers how characters on the webpage should be interpreted-->
     <meta charset="utf-8">
@@ -11,7 +11,7 @@
     <!--Automatically adjusts the websites size to the device's screen size-->
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
     
-    <title> Checkout - Build it Matsulu </title>
+    <title> Product List - Build it Matsulu </title>
 
     <!--Box icons link // Open source web icons website-->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -30,24 +30,29 @@
 
 <!------------------------------------------------------------------------->
 <!-- HEADER -->
+
     <body>
+        <!--Header-->
         <header>
             <a href="index.php" class="logo"><img src="images\BM-Logo.png"></a>
 
             <!--Navigation menu in the form of an unordered list-->
             <ul class="navMenu">
+                <!--Navigation links within the menu that take the user to the same page (null links)-->
                 <li><a href="product-list.php">Shop</a></li>
                 <li><a href="index.php#promotions">Promotions</a></li>
                 <li><a href="index.php#best-sellers">Best Sellers</a></li>
                 <li><a href="index.php#ContactUs">Contact Us</a></li>
             </ul>
 
+            <!--Symbols from Remix icons website-->
             <div class="navMenu-right">
 
                 <!--Shopping cart symbol-->
                 <a href="shopping-cart.php"><i class="ri-shopping-cart-line"></i></a>
                 <!--User symbol-->
                 <a href="login.php"><i class="ri-user-line"></i></a>
+                
                 <!--Three line menu symbol-->
                 <div class="bx bx-menu" id="menu-icon"></div>
  
@@ -55,93 +60,64 @@
         </header>
 
 <!------------------------------------------------------------------------->
-<!--Checkout-->
-        <div class="container">
-            <!--Required Checkout From-->
-            <form onsubmit="return validateForm()">
+<!-- ALL PRODUCTS -->
 
-                <!--Delivery Details-->
-                <div class="box">
-                    <h2>Delivery Details</h2>
-                        <!--Input fields for checkout-->
-                        <label for="name">Name:</label>
-                        <input type="text" id="name" name="name" required>
+        <section id="all-products" class="allProd">
 
-                        <label for="mobile">Mobile Number:</label>
-                        <input type="tel" id="mobile" name="mobile" required>
+            <!--All Products Heading-->
+            <div class="center-text" data-aos="fade-down">
+                <h2>All Products</h2>
+            </div>
 
-                        <label for="province">Province:</label>
-                        <select id="province" name="province" required>
-                            <!--Options for different provinces-->
-                            <option value="Mpumalanga">Mpumalanga</option>
-                            <option value="Gauteng">Gauteng</option>
-                            <option value="Western Cape">Western Cape</option>
-                            <option value="KwaZulu-Natal">Kwazulu-Natal</option>
-                            <option value="Eastern Cape">Eastern Cape</option>
-                            <option value="Northern Cape">Northern Cape</option>
-                            <option value="Free State">Free State</option>
-                            <option value="Limpopo">Limpopo</option>
-                            <option value="North West">North West</option>
-                        </select>
+            <!--PRODUCT CARDS CONTAINER-->
+            <div class="prodCardList" data-aos="zoom-in">
 
-                        <label for="city">City/Town/Settlement:</label>
-                        <input type="text" id="city" name="city" required>
+                <?php include('get_products_for_list.php'); ?>
 
-                        <label for="street">Street Address:</label>
-                        <input type="text" id="street" name="street" required>
-                </div>
+                <?php
+                    $counter = 0;
+                ?>
+    
+                <?php while($row= $featured_products->fetch_assoc()){ ?>
+    
+                <!--Container for content in Product Card-->
+                    <div class="prodCard">
 
-                <!--Payment Method-->
-                <div class="box">
-                    <h2>Payment Method</h2>
-                        <label for="cardname">Name of Card:</label>
-                        <input type="text" id="cardname" name="cardname" required>
-
-                        <label for="cardnumber">Card Number:</label>
-                        <input type="text" id="cardnumber" name="cardnumber" required>
-
-                        <label for="expmonth">Expiry Date:</label>
-                        <div class="expiry-date">                 
-                            <input type="text" id="expmonth" name="expmonth" placeholder="Month" required>
-                            <input type="text" id="expyear" name="expyear" placeholder="Year" required>
+                        <div class="prodCard-img">  
+                            <img src="images\<?php echo $row['product_image']; ?>">
                         </div>
-                        <label for="cvv">CVV:</label>
-                        <input type="text" id="cvv" name="cvv" required>
-
-                        <label for="paymenttype">Straight/Budget:</label>
-                        <select id="paymenttype" name="paymenttype" required>
-                            <!--Options for payment type-->
-                            <option value="straight">Straight</option>
-                            <option value="budget">Budget</option>
-                        </select>
-                </div>
-                
-                <!--Order Summary-->
-                <div class="box">
-                    <h2>Order Summary</h2>
-                    <!--Display of total items, total cost, and delivery fees-->
-                    <div class="order-summary">
-                        <span id="total-items">0 items</span>
-                        <span id="total-cost">R 0.00</span>
+                        
+                        <h3><?php echo $row['product_name']; ?></h3>
+    
+                        <!--HIDDEN INPUT FORM START-->
+                        <form method="POST" id="add-form-<?php echo $counter; ?>">    
+                            <input type="hidden" name="product_name" value="<?php echo $row['product_name']; ?>"/>
+                            <input type="hidden" name="product_price" value="<?php echo $row['product_price']; ?>"/>
+                            <input type="hidden" name="product_image" value="<?php echo $row['product_image']; ?>"/>
+                            <input type="hidden" name="counter" value="<?php echo $counter ?>"/>
+                            
+                            <div class="prodCard-details">
+                                <div class="prodCard-price">
+                                    <h6>R <?php echo $row['product_price']; ?></h6>
+                                </div>
+    
+                                <div class="prodCard-cart">
+                                    <button type="submit"> Add to cart <i class="ri-shopping-cart-fill"></i> </button>
+                                </div>
+                            </div>
+                        </form>
+                        <!--HIDDEN INPUT FORM END-->
                     </div>
-                    <div class="order-summary">
-                        <span>Delivery Fees</span>
-                        <span>R 100.00</span>
-                    </div>
-                    <div class="line"></div>
-                    <!-- Display of final total cost -->
-                    <div class="order-summary">
-                        <span><b>Total Cost</b></span>
-                        <span class="total-cost" id="final-cost">R 0.00</span>
-                    </div>
-                    <!-- Button for making payment -->
-                    <button type="submit" id="make-payment">Make Payment</button>
-                </div>
-            </form>   
-        </div>
+                <?php $counter++; ?>
+                <?php } ?>
+            </div>
+            <!--END OF PRODUCT CARDS CONTAINER-->
+        </section>
 
 <!------------------------------------------------------------------------->
 <!-- FOOTER -->
+
+        <!--footer-->
         <section class="footer">
 
             <div class="footer-box">
@@ -200,7 +176,5 @@
                 duration: 1450,
             });
         </script>
-
     </body>
-
 </html>  

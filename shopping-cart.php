@@ -1,10 +1,3 @@
-
-<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-<!--BROKEN SESSION CODE-->
-
-
-
-
 <!DOCTYPE html>
 <html>
 
@@ -37,9 +30,7 @@
 
 <!------------------------------------------------------------------------->
 <!-- HEADER -->
-
     <body>
-        <!--Header-->
         <header>
             <!--Creates a hyperlink on the specified text that takes the user to the same page (href attribute = # (null link))-->
             <!--Assigns class name "logo" to <a> tag. Allows for styles to be applied specifically to this ele using .logo selector in CSS-->
@@ -48,40 +39,32 @@
             <!--Navigation menu in the form of an unordered list-->
             <ul class="navMenu">
                 <!--Navigation links within the menu that take the user to the same page (null links)-->
-                <li><a href="product-list.html">Shop</a></li>
+                <li><a href="product-list.php">Shop</a></li>
                 <li><a href="index.php#promotions">Promotions</a></li>
                 <li><a href="index.php#best-sellers">Best Sellers</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="index.php#ContactUs">Contact Us</a></li>
             </ul>
 
             <!--Symbols from Remix icons website-->
             <div class="navMenu-right">
-
                 <!--Shopping cart symbol-->
                 <a href="shopping-cart.php"><i class="ri-shopping-cart-line"></i></a>
                 <!--User symbol-->
-                <a href="#"><i class="ri-user-line"></i></a>
-                
+                <a href="login.php"><i class="ri-user-line"></i></a>
                 <!--Three line menu symbol-->
-                <!--Assigns 2 classes to the <div> ele-->
-                <!--Assigns an ID (to uniquely identifies ele) to the <div> ele-->
                 <div class="bx bx-menu" id="menu-icon"></div>
- 
             </div>
         </header>
 
 <!------------------------------------------------------------------------->
-
-<!------------------------------------------------------------------------->
 <!--CART-->
-
         <section class="cart">
             <div class="custom-container">
                 <h2>Shopping Cart</h2>
                 <hr>
             </div>
-<!----------------------------------------->
-<!--Table -->
+
+<!--Table 1 (Bar with Product, Qty and Subtotal headings)-->
             <table>
                 <tr>
                     <th>Product</th>
@@ -91,15 +74,21 @@
 
                 <?php include('get_cart_items.php'); ?>
 
-                <!--Product in shoppping cart-->
-
                 <?php
                     $counter = 0;
+                    $total = 0;      // for cart calculations  
+                    $totalItems = 0; // storing total number of items
                 ?>
-
-                                                        <!--$value is the array-->
+                   
+                <!--Products in shopping cart-->   
                 <?php while($row= $featured_products->fetch_assoc()){ ?>
                 
+                    <?php 
+                        $subtotal = $row['product_price'] * $row['product_quantity']; // Calculate subtotal
+                        $total += $subtotal; // total price
+                        $totalItems += $row['product_quantity']; // total items (for checkout)
+                    ?>
+
                 <tr>
                     <td>
                         <div class="product-info">
@@ -109,96 +98,75 @@
 
                             <div>
                                 <!--Product Name-->
-                                <p>     <?php echo $row['product_name']; ?>      </p>
+                                <p><?php echo $row['product_name']; ?></p>
 
                                 <!--Product Price-->
-                                <small><span>R</span>    <?php echo $row['product_price']; ?>    </small>
+                                <small><span>R</span><?php echo $row['product_price']; ?></small>
                                 <br>
 
-                                <!--Remove Button-->
-                                <!-- <form method="POST" action="shopping-cart.php">
-                                    <input type="hidden" name="product_id" value="<?php echo $row['product_id']; ?>"/>
-
-                                    <button type="submit" name="remove_product" class="remove-btn" value="remove">Remove</button>
-                                </form> -->
-
+                                <!--Remove item from cart button-->
                                 <form method="POST" action="remove_cart_items.php">
                                     <input type="hidden" name="product_id" value="<?php echo $row['product_id']; ?>"/>
-
                                     <button type="submit" name="remove_product" class="remove-btn" value="remove">Remove</button>
                                 </form>
 
                             </div>
-
                         </div>
                     </td>
 
                     <td>
-                        <!--Edit(save qty button) form-->
-                        <form method="POST" id="update-form-<?php echo $counter; ?>"> <!-- action="server/update_cart_items_qty.php"-->
-                            
-                            <!--Edit button input-->
+                        <!--Save qty button form-->
+                        <form method="POST" class="save-qty-form" id="update-form-<?php echo $counter; ?>" action="update_cart_items_qty.php">
+                            <!--Save button input-->
                             <input type="hidden" name="product_id" value="<?php echo $row['product_id']; ?>"/>
-
+                            <!--Counter-->
                             <input type="hidden" name="counter" value="<?php echo $counter ?>"/>
-
-                            <!--Product Quantity-->
-                            <input type="number" name="product_quantity" value="<?php echo $row['product_quantity']; ?>"/>
-                            <!--Edit button-->
-                            <button type="submit" name="edit_quantity" class="edit-btn" value="edit">Edit</button>
+                            <!--Product Quantity selector-->
+                            <input type="number" class= "save-qty-selector" name="product_quantity" value="<?php echo $row['product_quantity']; ?>"/>
+                            <!--Save button-->
+                            <button type="submit" name="edit_quantity" class="edit-btn" value="edit">Save</button>
                         </form>
                     </td>
 
                     <td>
                         <span>R</span>
-                        <span class="product-price">155</span>
+                        <span class="product-price"><?php echo $subtotal; ?></span> <!--Displays the calculated subtotal-->
                     </td>
-
                 </tr>
                 
                 <?php $counter++; ?>    
-
                 <?php } ?> 
-
             </table>
-<!----------------------------------------->
-<!--Table 2 ()-->
 
+<!--Table 2 (Contains all products added to shopping cart)-->
             <div class="cart-total">
                 <table> 
                     <tr>
-                        <td>Subotal</td>
-                        <td>R155</td>
-                    </tr>
-
-                    <tr>
                         <td>Total</td>
-                        <td>R155</td>
+                        <td>R<?php echo $total; ?></td> <!--Displays accumulated total-->
                     </tr>
                 </table>
             </div>
-<!----------------------------------------->
-<!--Checkout Button-->
-            <div class="checkout-btn-container">
-                <button class="checkout-btn">Checkout</button>
-            </div>
 
+<!--Checkout Button-->
+            <!-- hidden form that passes total items and total cost to checkout.html page -->
+            <form id="checkout-form" method="GET" action="checkout.html">
+                <input type="hidden" name="total_items" value="<?php echo $totalItems; ?>">
+                <input type="hidden" name="total_cost" value="<?php echo $total + 100; ?>">
+                <div class="checkout-btn-container">
+                    <button type="submit" class="checkout-btn">Checkout</button>
+                </div>
+            </form>
 
         </section>
-
-
-
-
-<!------------------------------------------------------------------------->
 
 <!------------------------------------------------------------------------->
 <!-- FOOTER -->
 
         <!--footer-->
         <section class="footer">
-
             <div class="footer-box">
-                <h3>Contact Us</h3>
+                <h3 id="ContactUs">Contact Us</h3>
                 <a href="#">Store Manager:<br>(013) 778 9625</a>
                 <a href="#">Store Cell Number:<br>(072) 151 1392</a>
                 <a href="#">Email:<br>manager.matsulu@builditmpu.co.za</a>
@@ -223,11 +191,10 @@
                 <h3>Social</h3>
                 <div class="social">
                     <!--Facebook icon-->
-                    <a href="#"><i class="ri-facebook-fill"></i></a>
+                    <a href="https://www.facebook.com/BuilditMatsulu/"><i class="ri-facebook-fill"></i></a>
                     <span class="facebookText">Facebook</span>
                 </div>
             </div>
-
         </section>
 
         <!--Copyright-->
@@ -249,13 +216,9 @@
         <script>
             //function provided by the AOS library to initialize its functionality
             AOS.init({
-                //Specifies the distance (px) from og trigger point to start new animation. (300px before ele in view)
                 offset: 300,
-                //specifies the duration of the animation(ms).
                 duration: 1450,
             });
         </script>
-
     </body>
-
 </html>  

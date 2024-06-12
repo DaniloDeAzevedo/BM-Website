@@ -19,31 +19,27 @@
                 
 <!----------------------------------------->
 
-                <form id="register-form" class="flex-item">
+                <form id="register-form" class="flex-item" action="register.php" method="post">
 
-                    <label for="firstName">First Name:</label>
-                    <input type="text" id="register-firstName" name="firstName" placeholder="Name" required>
-                    
-                    <label for="lastName">Last Name:</label>
-                    <input type="text" id="register-lastName" name="lastName" placeholder="Last Name" required>
-                    
-                    <label for="email">Email:</label>
-                    <input type="email" id="register-email" name="email" placeholder="Email" required>
+                    <label for="username">Username:</label>
+                    <input type="text" id="register-username" name="username" placeholder="Username" required>
                     
                     <label for="password">Password:</label>
                     <input type="password" id="register-password" name="password" placeholder="Password" required>
                     
                     <label for="password">Confirm Password:</label>
                     <input type="password" id="register-confirm-password" name="confirmPassword" placeholder="Confirm Password" required>
+                    
+                    <p id="password-error" style="display:none; color:white;">Mismatching passwords, try again.</p>
 
                     <button type="submit" id="register-btn" value="Register">Register</button>
 
-                    <a id="login-url" href="login.html">Already have an account? Login</a>
+                    <a id="login-url" href="login.php">Already have an account? Login</a>
 
                 </form>
 
             </div>
         </div>
-
+        <script src="main.js"></script>
 </body>
 </html>

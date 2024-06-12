@@ -1,7 +1,7 @@
 <?php 
 include('connection.php');
 
-$stmt = $conn->prepare("SELECT * FROM cart LIMIT 4 "); //REMOVE LATER
+$stmt = $conn->prepare("SELECT * FROM cart");
 
 $stmt->execute();
 

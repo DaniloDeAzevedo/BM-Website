@@ -218,7 +218,7 @@
 
 
             <!--Imports specified file which has featured_products variable (array)-->
-            <?php include('server/get_featured_products.php'); ?>
+            <?php include('get_featured_products.php'); ?>
 
 
             <?php while($row= $featured_products->fetch_assoc()){ ?>
