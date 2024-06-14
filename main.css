@@ -358,9 +358,6 @@ section{
 /*Best sellers section*/
 .best-sellers{
     display: grid;
-    /*Repeat(count, track-list aka cols/rows)*/
-    /*auto-fit: auto adjusts no. of cols to fit container width*/
-    /*minmax: each col is 150px wide and expanded as needed*/
     grid-template-columns: repeat(auto-fit, minmax(150px, auto));
     align-items: center;
     gap: 2.5rem;

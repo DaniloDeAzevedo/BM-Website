@@ -1,14 +1,11 @@
 <?php
 
-
 //local connection
 $conn = mysqli_connect("localhost","root","","php_project")
         or die("Unable to connect to database");
 
-//host connection
-//$conn = mysqli_connect("localhost","id22293550_bmdatabase","BM_Database1","php_project")
+//webhost connection
+//$conn = mysqli_connect("127.0.0.1:3306","u108639952_bmdatabase","BM_Database1","u108639952_bmdatabase")
 //        or die("Unable to connect to database");        
 
-
-        
 ?>

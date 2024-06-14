@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+// Check if the user has been redirected before
+if (!isset($_SESSION['redirected'])) {
+    $_SESSION['redirected'] = true; // Set the session variable
+    header("Location: login.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html>
 

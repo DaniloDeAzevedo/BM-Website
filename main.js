@@ -54,25 +54,25 @@ document.querySelectorAll('.colPromo-img img').forEach(img => { //Selects all <i
 //Add cart items (From homepage/index)
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Check if we're on the specific page
+  //Check if we're on the specific page
   if (window.location.pathname === '/index.php') {
-      // Get all forms with the class 'add-form'
+      //Get all forms with the class 'add-form'
       const forms = document.querySelectorAll('form[id^="add-form-"]');
-      // Loop through each form and attach event listener
+      //Loop through each form and attach event listener
       forms.forEach(function(form) {
           form.addEventListener('submit', function(event) {
-              event.preventDefault(); // Prevent the default form submission
+              event.preventDefault(); //Prevent the default form submission
 
-              // Capture form data
+              //Capture form data
               const formData = new FormData(form);
 
-              // Loop through form data entries
+              //Loop through form data entries
               for (const entry of formData.entries()) {
-                  const fieldName = entry[0]; // Get the name of the form field
-                  const fieldValue = entry[1]; // Get the value of the form field
+                  const fieldName = entry[0]; //Get the name of the form field
+                  const fieldValue = entry[1]; //Get the value of the form field
 
-                  if (fieldName == 'counter' && fieldValue != null) {
-
+                  if (fieldName == 'counter' && fieldValue != null) 
+                    {
                       fetch('add_cart_items.php', {
                           method: 'POST',
                           body: formData
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
               }
           });
       });
-  }
+    }
 });
 
 ///////////////////////////////////////////////////////////////
